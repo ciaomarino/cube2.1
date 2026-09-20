@@ -128,8 +128,8 @@ for (const f of faces) {
       )
     }}}
 
-const plane1 = 2
-const plane2 = 3
+const plane1 = 0.3
+const plane2 = 1.3
 function
 
 
