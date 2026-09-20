@@ -5,12 +5,14 @@ var c = canvas.getContext('2d')
 const xinput = document.getElementById('rangex')
 const yinput = document.getElementById('rangey')
 const zinput = document.getElementById('rangez')
+const foreSlider = document.getElementById('foreSlider')
 
 const FOREground = "#10ff10"
 
-ranx = 0
-rany = 0
-ranz = 0
+var ranx = 0
+var rany = 0
+var ranz = 0
+var foreshor = 0
 
 xinput.addEventListener('input', e => {
   ranx = Number(e.target.value);
@@ -21,7 +23,9 @@ yinput.addEventListener('input', e => {
 zinput.addEventListener('input', e => {
   ranz = Number(e.target.value);
 });
-
+foreSlider.addEventListener('input', e => {
+  foreshor = Number(e.target.value);
+});
 function clear(){c.clearRect(0,0,canvas.width, canvas.height)}
 
 function point({x,y}){
@@ -47,8 +51,8 @@ function onscreen(p){
 
 function make3d({x,y,z}){
   return {
-    x: x/z,
-    y: y/z
+    x: x/(z+foreshor),
+    y: y/(z+foreshor)
   }
 }
 
